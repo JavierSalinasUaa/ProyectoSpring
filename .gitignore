@@ -1,0 +1,11 @@
+target/
+.env
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+docs/tmp/
+docs/springboot-clienteapp/
+docs/deploying-spring-boot-apps/
+.mvn/wrapper/maven-wrapper.jar
