@@ -24,7 +24,7 @@ public class SpringbootClienteappApplication {
 		SpringApplication.run(SpringbootClienteappApplication.class, args);
 	}
 
-	public DataSource dataSource() throws SQLException {
+	/*public DataSource dataSource() throws SQLException {
 		if (dbUrl == null || dbUrl.isEmpty()) {
 			return new HikariDataSource();
 		} else {
@@ -32,6 +32,6 @@ public class SpringbootClienteappApplication {
 			config.setJdbcUrl(dbUrl);
 			return new HikariDataSource(config);
 		}
-	}
+	}*/
 
 }

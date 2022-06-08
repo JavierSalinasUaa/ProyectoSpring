@@ -15,7 +15,7 @@ import com.springboot.clienteapp.models.entity.Cliente;
 import com.springboot.clienteapp.models.service.IClienteService;
 
 @Controller
-@RequestMapping("/views/clientes")
+@RequestMapping("/views/clientes/")
 public class ClienteController {
 	
 	@Autowired
@@ -54,12 +54,12 @@ public class ClienteController {
 			model.addAttribute("cliente", cliente);
 			model.addAttribute("ciudades", listCiudades);
 			System.out.println("Hay errores en el formulario");
-			return "/iews/clientes/frmCrear";
+			return "views/clientes/frmCrear";
 		}
 
 		clienteService.guardar(cliente);
 		System.out.println("Cliente Guardado con exito");
-		return "redirect:views/clientes";
+		return "redirect:/views/clientes/";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -80,7 +80,7 @@ public class ClienteController {
 		clienteService.eliminar(idCliente);
 		System.out.println("Registro eliminado con exito!");
 
-		return "redirect:views/clientes";
+		return "redirect:/views/clientes/";
 	}
 	
 }

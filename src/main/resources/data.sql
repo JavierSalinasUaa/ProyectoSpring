@@ -1,0 +1,1 @@
+INSERT INTO ciudades VALUES (3, 'Ypane');
