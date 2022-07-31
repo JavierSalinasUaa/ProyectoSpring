@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/template :: head">
+
+</head>
+
+<body>
+<header th:replace="plantilla/template :: header">
+
+</header>
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+</div>
+
+<div class="container">
+
+    <a th:href="@{/views/detalleCobros/create}" class="btn btn-primary btn-sm" th:text="'Detalle del Cobro'" title="Crear nuevo Registro"></a>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id Detalle</th >
+            <th scope="col">Id Cobro</th>
+            <th scope="col">Forma de Pago</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Local</th>
+
+        </tr>
+        </thead >
+        <tbody>
+        <tr th:each="dco:${detalle_cobros}">
+            <td th:text="${dco.id}"></td>
+            <td th:text="${dco.cobro.id}"></td>
+            <td th:text="${dco.f_pago}"></td>
+            <td th:text="${dco.fecha}"></td>
+            <td th:text="${dco.ciudad.ciudad}"></td>
+            <td>
+                <a th:href="@{/views/detalleCobros/edit/} + ${dco.id}" class="btn btn-success btn-sm"
+                 th:text="'Editar'" title="Editar Registro">
+            </a>
+            </td>
+            <td>
+                <a th:href="@{/views/detalleCobros/delete/} + ${dco.id}" class="btn btn-danger btn-sm"
+                   th:text="'Eliminar'" title="Eliminar Registro"
+                   onclick = "return confirm('Esta seguro de eliminar el registro?');">
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="plantilla/template :: footer">
+
+</footer>
+</body>
+
+</html>

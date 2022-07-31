@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/template :: head">
+
+</head>
+<body>
+<header th:replace="plantilla/template :: header">
+
+</header>
+
+<div class="container">
+    <div class="card bg-light">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+            <div class="container">
+                <form th:action="@{/views/cobros/save}" th:object="${cobro}" method="post">
+                    <div class="form-group row">
+                        <input type = "hidden" th:field="*{id}">
+                        <label class="col-md-2" for="servicio">Servicio:</label>
+                        <input type = "text" th:field="*{servicio}" class="form-control form-control-sm col-md-6" id="servicio" placeholder="Nombres del Servicio">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('servicio')}"
+                               th:errors = "*{servicio}">
+                        </small>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" for="costo">Costo</label>
+                        <input type = "text" th:field="*{costo}" class="form-control form-control-sm col-md-6" id="costo" placeholder="Costo">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('costo')}"
+                               th:errors = "*{costo}">
+                        </small>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" for="cliente">Cliente:</label>
+                        <select type = "text" th:field="*{cliente}" class="form-control form-control-sm col-md-6" id="cliente">
+                            <option th:each="cliente:${clientes}"
+                                    th:value="${cliente.id}"
+                                    th:text="${cliente.nombres}+' '+${cliente.apellidos}">
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+
+                    <a th:href="@{/views/cobros/}" class="btn btn-primary btn-sm"
+                       th:text="'Cancelar'" title="Cancelar accion">
+                    </a>
+
+                </form>
+            </div>
+        </div>
+
+
+        <footer th:replace="plantilla/template :: footer">
+
+        </footer>
+    </div>
+</div>
+</body>
+</html>

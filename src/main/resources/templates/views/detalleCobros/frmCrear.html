@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/template :: head">
+
+</head>
+<body>
+<header th:replace="plantilla/template :: header">
+
+</header>
+
+<div class="container">
+    <div class="card bg-light">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+            <div class="container">
+                <form th:action="@{/views/detalleCobros/save}" th:object="${detalle_cobro}" method="post">
+                    <div class="form-group row">
+                        <input type="hidden" th:field="*{id}">
+
+                        <label class="col-md-2" for="f_pago">Forma de Pago:</label>
+                        <input type="text" th:field="*{f_pago}" class="form-control form-control-sm col-md-6"
+                               id="f_pago" placeholder="Forma de Pago">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('f_pago')}"
+                               th:errors="*{f_pago}">
+                        </small>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" for="fecha">Fecha de Pago</label>
+                        <input type = "text" th:field="*{fecha}" class="form-control form-control-sm col-md-6" id="fecha" placeholder="fecha">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
+                               th:errors = "*{fecha}">
+                        </small>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" for="cobro">ID Cobro:</label>
+                        <select type = "text" th:field="*{cobro}" class="form-control form-control-sm col-md-6" id="cobro">
+                            <option th:each="cobro:${cobros}"
+                                    th:value="${cobro.id}"
+                                    th:text="${cobro.id}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" for="ciudad">Ciudad:</label>
+                        <select type="text" th:field="*{ciudad}" class="form-control form-control-sm col-md-6"
+                                id="ciudad">
+                            <option th:each="ciudad:${ciudades}"
+                                    th:value="${ciudad.id}"
+                                    th:text="${ciudad.ciudad}">
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+
+                    <a th:href="@{/views/detalleCobros/}" class="btn btn-primary btn-sm"
+                       th:text="'Cancelar'" title="Cancelar accion">
+                    </a>
+
+                </form>
+            </div>
+        </div>
+
+
+        <footer th:replace="plantilla/template :: footer">
+
+        </footer>
+    </div>
+</div>
+</body>
+</html>
