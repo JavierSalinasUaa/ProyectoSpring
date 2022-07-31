@@ -8,3 +8,5 @@ INSERT INTO clientes (apellidos, email, nombres, telefono, ciudades_id)
 VALUES ('Salinas', 'javier161@gmail.com', 'Javier', '0992-462-576', '1');
 INSERT INTO ciudades (id, ciudad) VALUES ('1', 'San Antonio');
 INSERT INTO ciudades (id, ciudad) VALUES ('2', 'Villa Elisa');
+INSERT INTO ciudades (id, ciudad) VALUES ('3', 'Lambare');
+INSERT INTO ciudades (id, ciudad) VALUES ('4', 'Asuncion');
