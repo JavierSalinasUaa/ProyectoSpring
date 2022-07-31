@@ -72,7 +72,7 @@ public class DetalleCobroController {
 
         detalleCobroService.guardar(detalleCobro);
         System.out.println("Detalle Guardado con exito");
-        return "redirect:/detalleCobros/clientes/";
+        return "redirect:/views/detalleCobros/";
     }
 
     @GetMapping("/edit/{id}")
