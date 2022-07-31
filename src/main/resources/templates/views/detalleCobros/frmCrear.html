@@ -28,7 +28,7 @@
 
                     <div class="form-group row">
                         <label class="col-md-2" for="fecha">Fecha de Pago</label>
-                        <input type = "text" th:field="*{fecha}" class="form-control form-control-sm col-md-6" id="fecha" placeholder="fecha">
+                        <input type = "text" th:field="*{fecha}" class="form-control form-control-sm col-md-6" id="fecha" placeholder="Formato fecha aaaa/mm/dd">
                         <small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
                                th:errors = "*{fecha}">
                         </small>
