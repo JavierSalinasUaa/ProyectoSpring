@@ -57,22 +57,22 @@ public class DetalleCobroController {
     }
 
     @PostMapping("/save")
-    public String guardar(@Valid @ModelAttribute DetalleCobro detalleCobro, BindingResult result, Model model){
+    public String guardar(@Valid @ModelAttribute("detalle_cobro") DetalleCobro detalleCobro, BindingResult result, Model model){
         List<Cobro> listCobros = cobroService.listarTodos();
         List<Ciudad> listCiudades = ciudadService.listaCiudades();
 
         if (result.hasErrors()){
             model.addAttribute("titulo", "Formulario: Detalle de Cobro");
             model.addAttribute("detalle_cobro", detalleCobro);
-            model.addAttribute("ciudades", listCiudades);
             model.addAttribute("cobros", listCobros);
+            model.addAttribute("ciudades", listCiudades);
             System.out.println("Hay errores en el formulario");
             return "views/detalleCobros/frmCrear";
         }
 
         detalleCobroService.guardar(detalleCobro);
         System.out.println("Detalle Guardado con exito");
-        return "redirect:/detalleCobros/clientes/";
+        return "redirect:/views/detalleCobros/";
     }
 
     @GetMapping("/edit/{id}")

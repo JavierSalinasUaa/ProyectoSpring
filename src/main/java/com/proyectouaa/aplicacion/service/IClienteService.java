@@ -2,7 +2,6 @@ package com.proyectouaa.aplicacion.service;
 
 import java.util.List;
 
-import com.proyectouaa.aplicacion.entity.Ciudad;
 import com.proyectouaa.aplicacion.entity.Cliente;
 
 public interface IClienteService {
